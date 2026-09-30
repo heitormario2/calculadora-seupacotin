@@ -1,0 +1,26 @@
+{
+  "name": "Calculadora de Cotação SeuPacotin",
+  "short_name": "SeuPacotin",
+  "description": "Calculadora de cotações de envelopes de segurança.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5f6f8",
+  "theme_color": "#fd6e05",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

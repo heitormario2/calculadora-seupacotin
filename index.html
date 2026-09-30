@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fd6e05" />
+  <meta name="description" content="Calculadora de cotações de envelopes de segurança da SeuPacotin." />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="SeuPacotin" />
+  <title>Calculadora de Cotação | Seu Pacotin</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="cabecalho">
+      <div class="marca">SEU <strong>PACOTIN</strong></div>
+      <div>
+        <h1>Calculadora de Cotação</h1>
+        <p>Envelopes de segurança</p>
+      </div>
+    </header>
+
+    <section id="instalacaoApp" class="instalacao-app" hidden>
+      <div>
+        <strong>Instale a calculadora no celular</strong>
+        <small>Use como aplicativo e acesse mesmo sem internet.</small>
+      </div>
+      <button id="instalarApp" class="botao botao-instalar" type="button">Instalar aplicativo</button>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-itens">
+      <div class="titulo-linha">
+        <h2 id="titulo-itens">Itens da cotação</h2>
+        <button id="adicionarLinha" class="botao botao-secundario" type="button">+ Adicionar linha</button>
+      </div>
+
+      <div class="tabela-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Quantidade</th>
+              <th>Tamanho</th>
+              <th>R$/milheiro</th>
+              <th>Subtotal</th>
+              <th><span class="sr-only">Remover</span></th>
+            </tr>
+          </thead>
+          <tbody id="linhasCotacao"></tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section class="nota-fiscal">
+      <label class="switch-container" for="comNotaFiscal">
+        <span class="switch-texto">
+          <strong>Com Nota Fiscal</strong>
+          <small>Acrescenta 8% aos valores</small>
+        </span>
+        <span class="switch">
+          <input id="comNotaFiscal" type="checkbox" />
+          <span class="slider"></span>
+        </span>
+      </label>
+      <p id="avisoNotaFiscal" class="aviso-nota-fiscal" hidden>Valores com Nota Fiscal (+8%)</p>
+    </section>
+
+    <section class="resumo" aria-live="polite">
+      <div class="resumo-item">
+        <span>Volume total</span>
+        <strong id="volumeTotal">0 unidades</strong>
+      </div>
+      <div class="resumo-item faixa">
+        <span>Faixa aplicada</span>
+        <strong id="faixaAplicada">—</strong>
+      </div>
+      <div class="resumo-item total">
+        <span>Total da cotação</span>
+        <strong id="valorTotal">R$ 0,00</strong>
+      </div>
+    </section>
+
+    <section class="acoes">
+      <button id="copiarWhatsapp" class="botao botao-whatsapp" type="button">Copiar para WhatsApp</button>
+      <button id="novaCotacao" class="botao botao-limpar" type="button">Nova cotação</button>
+      <p id="mensagem" class="mensagem" role="status"></p>
+    </section>
+
+    <footer class="rodape-app">
+      <span id="statusConexao">Aplicativo pronto</span>
+      <a href="manual-instrucoes.pdf" target="_blank" rel="noopener">Abrir manual</a>
+    </footer>
+  </main>
+
+  <template id="modeloLinha">
+    <tr>
+      <td data-label="Quantidade">
+        <input class="quantidade" type="number" min="1000" step="1000" inputmode="numeric" placeholder="Ex.: 3000" />
+      </td>
+      <td data-label="Tamanho">
+        <select class="tamanho" aria-label="Tamanho do envelope"></select>
+      </td>
+      <td data-label="R$/milheiro" class="preco-milheiro">R$ 0,00</td>
+      <td data-label="Subtotal" class="subtotal">R$ 0,00</td>
+      <td class="acao-remover">
+        <button class="remover" type="button" title="Remover item" aria-label="Remover item">×</button>
+      </td>
+    </tr>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
